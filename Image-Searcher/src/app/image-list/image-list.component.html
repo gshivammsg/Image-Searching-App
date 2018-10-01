@@ -1,0 +1,15 @@
+<div class="container">
+  <input type="text" placeholder="enter the image you want to search !!!!" #query>
+  <button class="btn btn-default" (click)="searchImages(query.value)">Search</button>
+</div>
+
+<div *ngIf="show" class="container">
+<div   *ngFor="let image of images" class="image-container">
+  <h3>This is the image for {{image.tags}}</h3>
+  <img src="{{image.webformatURL}}">
+</div>
+</div>
+
+<div class="container" *ngIf="!show">
+  {{errorResult}}
+</div>
